@@ -14,7 +14,7 @@ const mongoConnected = new Promise((res, rej) => {
 
 mongoConnected.catch(err => console.error(err.stack))
 
-// app.use(express.static('public'))
+app.use(express.static('public'))
 app.get('/people', (req, res) => {
     mongoConnected.then(db => {
         db
