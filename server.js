@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
-const SERVER_PORT = 3000
+const SERVER_PORT = process.env.PORT || 3000
 const config = require('./config.json')
 
 const mongoConnected = new Promise((res, rej) => {
@@ -11,6 +11,7 @@ const mongoConnected = new Promise((res, rej) => {
         res(db)
     })
 })
+
 mongoConnected.catch(err => console.error(err.stack))
 
 // app.use(express.static('public'))
