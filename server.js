@@ -1,4 +1,18 @@
-require('@risingstack/trace')
+const metrics = require('datadog-metrics')
+metrics.init({ host: 'nodejsloadtest.ngrok.io', prefix: 'myapp.' })
+
+function collectMemoryStats() {
+    var memUsage = process.memoryUsage();
+    metrics.gauge('memory.rss', memUsage.rss);
+    metrics.gauge('memory.heapTotal', memUsage.heapTotal);
+    metrics.gauge('memory.heapUsed', memUsage.heapUsed);
+}
+
+setInterval(collectMemoryStats, 5000)
+
+// const StatsD = require('node-dogstatsd').StatsD
+// const dogstatsd = new StatsD()
+// dogstatsd.increment('page.views')
 
 const express = require('express')
 const app = express()
