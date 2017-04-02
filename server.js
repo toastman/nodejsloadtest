@@ -1,5 +1,5 @@
 const metrics = require('datadog-metrics')
-metrics.init({ host: 'nodejsloadtest.ngrok.io', prefix: 'myapp.' })
+metrics.init({ host: 'nodejsloadtest.herokuapp.com', prefix: 'nodejsloadtest.' })
 
 function collectMemoryStats() {
     var memUsage = process.memoryUsage();
