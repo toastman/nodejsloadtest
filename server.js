@@ -1,5 +1,11 @@
+const config = require('./config.json')
 const metrics = require('datadog-metrics')
-metrics.init({ host: 'nodejsloadtest.herokuapp.com', prefix: 'nodejsloadtest.' })
+
+metrics.init({
+    host: config.datadog_host,
+    prefix: config.datadog_host.datadog_app_prefix,
+    apiKey: config.datadog_api_key
+})
 
 function collectMemoryStats() {
     var memUsage = process.memoryUsage();
@@ -18,7 +24,7 @@ const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
 const SERVER_PORT = process.env.PORT || 3000
-const config = require('./config.json')
+
 
 const mongoConnected = new Promise((res, rej) => {
     MongoClient.connect(config.mongodb_url, (err, db) => {
