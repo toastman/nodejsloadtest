@@ -1,0 +1,21 @@
+config:
+  target: "http://localhost:3000"
+  # target: "http://ec2-34-209-17-82.us-west-2.compute.amazonaws.com"
+  phases:
+    -
+      duration: 60
+      arrivalRate: 50
+      rampTo: 10000
+scenarios:
+  -
+    name: "Get to index page"
+    flow:
+      -
+        get:
+          url: "/"
+  # -
+  #   name: "Get people page"
+  #   flow:
+  #     -
+  #       get:
+  #         url: "/people"

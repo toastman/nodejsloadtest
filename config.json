@@ -1,5 +1,8 @@
 {
-    "mongodb_url": "mongodb://dbuser:1qaz2wsx@ds145230.mlab.com:45230/starwars",
+    "_comment": {
+        "mongodb_url": "mongodb://dbuser:1qaz2wsx@ds145230.mlab.com:45230/starwars"
+    },
+    "mongodb_url": "mongodb://localhost:27017/starwars",
     "datadog_host": "nodejsloadtest.herokuapp.com",
     "datadog_app_prefix": "nodejsloadtest.",
     "datadog_api_key": "8d44a555bb6f6452a952943d6ba85727"
